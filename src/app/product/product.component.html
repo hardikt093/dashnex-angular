@@ -1,0 +1,24 @@
+<!-- Product details for each product -->
+
+<div class="container mt-5">
+  <mat-card class="product-card">
+    <div class="row">
+      <div class="col-lg-6 product-image">
+        <img mat-card-image [src]="productData?.image" alt="product image">
+      </div>
+      <div class="col-lg-6">
+        <mat-card-header>
+          <div mat-card-avatar class="product-header-image"></div>
+          <mat-card-title class="product-title">{{productData?.title}}</mat-card-title>
+          <div class="product-price">₹ {{productData?.price}}</div>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{productData?.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button class="add-to-cart-button" (click)="addToCart(productData)">Add to cart</button>
+        </mat-card-actions>
+      </div>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,29 @@
+.product-card {
+    max-width: 400px;
+    margin: 20px;
+}
+
+.add-to-cart-button {
+    margin-left: auto;
+}
+
+.product-title {
+    cursor: pointer;
+}
+
+.product-title:hover {
+    color: blue;
+    text-shadow:  2px 2px 8px #918e8e;
+}
+
+.product-image {
+    height: 150px;
+    width: 150px;
+    margin: 10px auto;
+}
+
+.product-price {
+    margin-left: auto;
+    margin-top: 12px;
+    font-size: 20px;
+}

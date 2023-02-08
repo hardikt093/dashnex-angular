@@ -1,0 +1,58 @@
+{
+  "products" : [
+    {
+      "id":"PID_001",
+      "product_name":"Oneplus 6",
+      "image": "https://cdn2.gsmarena.com/vv/pics/oneplus/oneplus-6-amber-red.jpg",
+      "category":"Mobile",
+      "quantity":35575,
+      "unit_price":"36999",
+      "description": "Size: 6.28 inches.The corners of the screen are within a standard rectangle. Measured diagonally, the screen size is 6.28 inches in the full rectangle standard rectangular shape."
+    },
+    {
+      "id":"PID_004",
+      "product_name":"iPhone X",
+      "image": "https://cdn2.gsmarena.com/vv/bigpic/apple-iphone-x.jpg",
+      "category":"Mobile",
+      "quantity":66250,
+      "unit_price":"92999",
+      "description":"The iPhone X display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle. When measured as a standard rectangular shape."
+    },
+    {
+      "id":"PID_005",
+      "product_name":"Samsung Galaxy S9",
+      "image": "https://cdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s9-plus-blue.jpg",
+      "category":"Mobile",
+      "quantity":22550,
+      "unit_price":"48999",
+      "description":"Iris scanner, fingerprint (rear-mounted), accelerometer, gyro, proximity, compass, barometer, heart rate, SpO2 ANT Bixby natural language commands and dictation."
+    },
+    {
+      "id":"PID_004",
+      "product_name":"iPhone X",
+      "image": "https://cdn2.gsmarena.com/vv/bigpic/apple-iphone-x.jpg",
+      "category":"Mobile",
+      "quantity":66250,
+      "unit_price":"92999",
+      "description":"The iPhone X display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle. When measured as a standard rectangular shape."
+    },
+    {
+      "id":"PID_005",
+      "product_name":"Samsung Galaxy S9",
+      "image": "https://cdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s9-plus-blue.jpg",
+      "category":"Mobile",
+      "quantity":22550,
+      "unit_price":"48999",
+      "description": "Iris scanner, fingerprint (rear-mounted), accelerometer, gyro, proximity, compass, barometer, heart rate, SpO2 ANT Bixby natural language commands and dictation."
+    },
+    {
+      "id":"PID_001",
+      "product_name":"Oneplus 6",
+      "image": "https://cdn2.gsmarena.com/vv/pics/oneplus/oneplus-6-amber-red.jpg",
+      "category":"Mobile",
+      "quantity":35575,
+      "unit_price":"36999",
+      "description": "Size: 6.28 inches.The corners of the screen are within a standard rectangle. Measured diagonally, the screen size is 6.28 inches in the full rectangle standard rectangular shape."
+    }
+  ]
+}
