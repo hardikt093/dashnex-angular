@@ -11,24 +11,24 @@
           <th style="width: 10%;">Total</th>
           <th style="width: 20%;"></th>
         </tr>
-        <tr *ngFor="let product of productArr; index as index">
+        <tr *ngFor="let product of productArr; let i = index">
           <td><img class="cart-image" src="{{ product?.product.image }}" /></td>
-          <td>{{ product?.product.title }}</td>
+          <td (click)="productDetail(product.product.id)" style="cursor: pointer;">{{ product?.product.title }}</td>
           <td>₹ {{ product?.product.price }}</td>
           <td>
             <div class="btn-group">
-              <button class="qty-btn minus" (click)="decrementQty(index)">
+              <button class="qty-btn minus" (click)="decrementQty(i, product.id)">
                 <span>-</span>
               </button>
               <input class="qty-text" type="text" name="quantity" [(ngModel)]="product.quantity" />
-              <button class="qty-btn plus" (click)="incrementQty(index)">
+              <button class="qty-btn plus" (click)="incrementQty(i, product.id)">
                 <span>+</span>
               </button>
             </div>
           </td>
           <td>{{ product?.product.total }}</td>
           <td>
-            <button type="button" class="btn" (click)="remove1(index)">
+            <button type="button" class="btn" (click)="removeItem(product.id)">
               <mat-icon>delete</mat-icon>
             </button>
           </td>

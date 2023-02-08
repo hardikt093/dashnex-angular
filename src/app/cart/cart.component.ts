@@ -34,15 +34,13 @@ export class CartComponent implements OnInit {
     
   }
 
+  productDetail(id: string) {
+    this.router.navigate(['/productDetail/'+ id]);
+  }
+
   addToCart(i: any) {
     this.productArr.push(i);
     Swal.fire('Success','Item added to cart','success');
-  }
-
-  incrementQty(i: any) {
-    this.productArr[i].quantity++;
-    this.productArr[i].total = this.productArr[i].product.price * this.productArr[i].quantity;
-    this.calculateTotal();
   }
 
   calculateTotal() {
@@ -54,29 +52,86 @@ export class CartComponent implements OnInit {
     this.cartTotal = tempTotal;
   }
 
-  decrementQty(i: any) {
-    if (this.productArr[i].quantity > 1) {
-      this.productArr[i].quantity--
-    }
-    this.productArr[i].total = this.productArr[i].product.price * this.productArr[i].quantity;
+  incrementQty(i: any, id:any) {
+    Swal.fire({
+      title: 'Do you want to add one of this product in the cart?',
+      showCancelButton: true,
+      confirmButtonText: 'Add',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.productArr[i].quantity = this.productArr[i].quantity + 1; 
+        let body = {
+          "quantity" : this.productArr[i].quantity
+        }         
+        this.productService.updateProductFromCart(id, body).subscribe(res =>{
+          console.log(res);
+          window.location.reload();
+        });
+        Swal.fire('Added!', '', 'success');
+      }
+    })
     this.calculateTotal();
   }
 
-  remove(index: number) {
-    this.productArr.splice(index);
+  decrementQty(i: any, id:any) {
+    if (this.productArr[i].quantity > 1) {
+      Swal.fire({
+        title: 'Do you want to remove one of this product from the cart?',
+        showCancelButton: true,
+        confirmButtonText: 'Remove',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.productArr[i].quantity = this.productArr[i].quantity - 1; 
+          let body = {
+            "quantity" : this.productArr[i].quantity
+          }         
+          this.productService.updateProductFromCart(id, body).subscribe(res =>{
+            console.log(res);
+            window.location.reload();
+          });
+          Swal.fire('Removed!', '', 'success');
+        }
+      })
+    }
+    else {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.productService.deleteProductFromCart(id).subscribe(res =>{
+            console.log(res);
+            window.location.reload();
+            
+          });
+          Swal.fire('Deleted!', '', 'success');
+        }
+      })
+    }
+    this.calculateTotal();
   }
 
-  removeAll() {
-    this.productArr = [];
-    this.updateCart()
-  }
-
-  updateCart() {
-    localStorage.setItem('cartarr', JSON.stringify(this.productArr))
-  }
-
-  remove1(index: number) {
-    this.productArr.splice(index, 1);
-    this.updateCart()
+  removeItem(index: number) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.productService.deleteProductFromCart(index).subscribe(res =>{
+          console.log(res);
+          window.location.reload();
+          
+        });
+        Swal.fire('Deleted!', 'Product has been deleted.', 'success');
+      }
+    })
   }
 }

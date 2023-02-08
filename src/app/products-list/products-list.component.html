@@ -4,17 +4,16 @@
     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" *ngFor="let product of productArray;let i=index">
       <mat-card class="product-card">
         <img class="product-image" mat-card-image [src]="product.image" alt="product image">
+
         <mat-card-header>
           <mat-card-title class="product-title" (click)="productDetail(product.id)">{{product.title}}
           </mat-card-title>
           <div class="product-price">₹ {{product.price}}</div>
           <mat-card-subtitle>{{product.category}}</mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content>
-          <p>{{product.description}}</p>
-        </mat-card-content>
+
         <mat-card-actions>
-          <button mat-raised-button class="add-to-cart-button" (click)="addToCart(product)">Add to cart</button>
+          <button mat-raised-button color="primary" class="add-to-cart-button" (click)="addToCart(product)">Add to cart</button>
         </mat-card-actions>
       </mat-card>
     </div>

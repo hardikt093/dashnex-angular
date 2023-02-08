@@ -24,8 +24,14 @@ export class ProductService {
 
   addProductToCart(body: any){
      this.http.post(this.apiUrl +'cart', body).subscribe(res =>{
-      console.log(res);
-      
     })
+  }
+
+  deleteProductFromCart(id: any){
+    return this.http.delete(this.apiUrl + 'cart/'+ id )
+  }
+
+  updateProductFromCart(id:any, body:any){
+    return this.http.put(this.apiUrl + 'cart/' + id, body)
   }
 }

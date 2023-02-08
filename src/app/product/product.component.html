@@ -7,8 +7,7 @@
         <img mat-card-image [src]="productData?.image" alt="product image">
       </div>
       <div class="col-lg-6">
-        <mat-card-header>
-          <div mat-card-avatar class="product-header-image"></div>
+        <mat-card-header class="product-heading">
           <mat-card-title class="product-title">{{productData?.title}}</mat-card-title>
           <div class="product-price">₹ {{productData?.price}}</div>
         </mat-card-header>
@@ -16,7 +15,7 @@
           <p>{{productData?.description}}</p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button class="add-to-cart-button" (click)="addToCart(productData)">Add to cart</button>
+          <button mat-raised-button color="primary" class="add-to-cart-button" (click)="addToCart(productData)">Add to cart</button>
         </mat-card-actions>
       </div>
     </div>

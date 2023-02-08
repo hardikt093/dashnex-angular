@@ -4,7 +4,7 @@
 }
 
 .add-to-cart-button {
-    margin-left: auto;
+    margin: auto;
 }
 
 .product-title {
@@ -24,6 +24,6 @@
 
 .product-price {
     margin-left: auto;
-    margin-top: 12px;
+    margin-top: 10px;
     font-size: 20px;
 }
