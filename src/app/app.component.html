@@ -8,7 +8,8 @@
         <a class="nav-link" href="#">Home </a>
       </li>
       <li class="nav-item cart">
-        <a class="nav-link" routerLink="/cart"><mat-icon>shopping_cart</mat-icon></a>
+        <a class="nav-link" routerLink="/cart"><mat-icon  matBadge="{{cartProduct.length}}" matBadgeColor="primary" class="cart-icon">shopping_cart
+          </mat-icon></a>
       </li>
     </ul>
 

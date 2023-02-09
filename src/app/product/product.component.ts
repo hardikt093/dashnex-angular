@@ -9,13 +9,13 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  productId: any;
+  productId!: number;
   productData: any;
-  imageUrl: any = "https://dashnex.albiorixtech.in/public";
+  imageUrl: string = "https://dashnex.albiorixtech.in/public";
   constructor(private router: Router, private productService: ProductService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.productId = this.activatedRoute.snapshot.params['id'];
+    this.productId = +this.activatedRoute.snapshot.params['id'];
     if (this.productId != null && this.productId != undefined) {
       this.getProductDetails(this.productId);
     }
@@ -31,13 +31,23 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  // add to cart
+  // add to cart 
   addToCart(item: any){
     let body = {
       "productId": item.id,
       "quantity": 1
     }
     this.productService.addProductToCart(body);
-    Swal.fire('Success','Item added to cart','success');
+    Swal.fire({
+      title: 'Item added to cart',
+      icon: 'success',
+      confirmButtonText: 'Ok'
+    }).then((result) => {
+      if (result.isConfirmed) {
+      window.location.reload();
+      }
+    });
   }
 }
+
+
