@@ -31,8 +31,7 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  // add to cart 
-
+  // add to cart
   addToCart(item: any){
     let body = {
       "productId": item.id,

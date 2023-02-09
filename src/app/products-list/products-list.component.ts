@@ -14,33 +14,36 @@ export class ProductsListComponent {
   cart: Array<any> = [];
   activateCart = true;
 
-  constructor(private router: Router,private productService : ProductService) {}
+  constructor(private router: Router, private productService: ProductService) { }
 
   ngOnInit() {
     this.getProductList();
   }
 
+  // get product list from api
   getProductList() {
     this.productService.getProduct().subscribe(res => {
       this.productArray = res.data;
       this.productArray.forEach((element: any) => {
-        if(element?.image) {
+        if (element?.image) {
           element.image = this.imageUrl + element.image;
         }
-      });      
+      });
     })
   }
 
+  // navigate to product details page
   productDetail(id: string) {
-    this.router.navigate(['/productDetail/'+ id]);
+    this.router.navigate(['/productDetail/' + id]);
   }
 
-  addToCart(item: any){
+  // add to cart
+  addToCart(item: any) {
     let body = {
       "productId": item.id,
       "quantity": 1
     }
     this.productService.addProductToCart(body);
-    Swal.fire('Success','Item added to cart','success');
+    Swal.fire('Success', 'Item added to cart', 'success');
   }
 }
